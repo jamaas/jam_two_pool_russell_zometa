@@ -1,22 +1,40 @@
+/* JAM first attempt at a toy two pool model with HMM kinetics in
+ Rust.  This generalised model should be expanadable to any number of
+ pools and interactions.  I'll use rk4 integration algorithm only
+ because it is what I have used historically and it worked!  These
+ biological systems, comprised of Henri-Michaelis-Menten (HMM) kinetic
+ equations are usually not stiff.  This model follows the structure of
+the accompanying diagram called "Two Pool Model.pdf */
+
+
 // First produced by  Pablo Zamora  and JAM at Norwich UK on 2026_01_26
 // Last updated on 2026_01_26
-
 
 use russell_lab::NumVector;
 use russell_ode::{Method, OdeSolver, Params, System};
 
 // --- Model Parameters ---
 
-/// Number of state variables (e.g., amount of metabolite in Pool A and Pool B).
+// Number of state variables (e.g., amount of metabolite in Pool A and Pool B).
 const N_STATES: usize = 2;
 
-/// Capacities or initial parameters for the system.
-/// I[0], I[1]: Volumes/capacities for Pool A and B.
-/// I[4]: Constant external input to Pool A.
-const I: [f64; 5] = [2.0, 3.0, 0.0, 0.0, 1.0];
+// Capacities or initial parameters for the system.
+// I[0], I[1]: Volumes/capacities for Pool A and B.
+// I[4]: Constant external input to Pool A.
 
-/// Flux constants used in the Michaelis-Menten-style equations.
-const C: [f64; 6] = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
+//SA=20.0, SB=25.0,QA0= 6.0,QB0=9.0, FOA=3.0
+const I:[f64;5] = [20.0, 25.0,6.0,9.0,3.0];
+
+/* Declaration of kinetic constants for the HMM equations.  A V12
+  variable refers to a VMax for the equation describing a flux from
+  pool "1" to pool "2".  A K12 variable refers to the "affinity
+  constant" for the equation describing a flux from pool "1" to pool
+  "2". */
+
+// Flux constants used in the Michaelis-Menten-style equations.
+// VAB = 18.0, VBA = 13.0, VBO = 8.0, KAB = 0.32,
+// KBA = 0.36, KBO = 0.31
+const C: [f64; 6] = [18.0,13.0,8.0,0.32,0.36,0.31];
 
 // --- Non-State Variable Extraction ---
 
@@ -32,7 +50,7 @@ pub struct AuxiliaryResults {
 }
 
 impl AuxiliaryResults {
-    /// Initializer for the auxiliary results.
+    // Initializer for the auxiliary results.
     fn new() -> Self {
         AuxiliaryResults {
             con_a: 0.0,
@@ -66,30 +84,36 @@ fn main() {
     });
 
     // 2. Configure the solver (Advance Runge-Kutta method)
-    let params = Params::new(Method::DoPri8);
+    //   let params = Params::new(Method::DoPri8);
+    // use Runge-Kutta 4th order
+       let params = Params::new(Method::Rk4);
     let mut solver = OdeSolver::new(params, system).expect("Solver initialization failed");
 
     // 3. Set Initial Conditions
+    // start time
     let mut t = 0.0;
+    // integration interval
     let dt = 0.1;
-    let mut y = NumVector::from(&[1.0, 1.0]); // Initial metabolite amounts in pools
+    // Initial metabolite amounts in pools
+    let mut y = NumVector::from(&[1.0, 1.0]); 
     let mut results = AuxiliaryResults::new();
 
     // 4. Time-stepping Loop
     println!("Time, PoolA, PoolB, ConA, ConB, Fab, Fba, Fbo");
-    for _ in 0..10 {
+    //Number of steps 
+    for _ in 0..100{
         // Advance the simulation.
         // The 'results' struct is passed mutably so it captures the values
         // calculated inside the system function at the end of the step.
         solver
             .solve(&mut y, t, t + dt, None, &mut results)
             .expect("Solver failed");
-
         t += dt;
 
         // Print the State variables (Pools) and Non-State variables (Cons/Fluxes)
         println!(
             "{:.2}, {:.4}, {:.4}, {:.4}, {:.4}, {:.4}, {:.4}, {:.4}",
+	    // time,QA, QB, ConA,ConB,Fab,Fba,Fbo
             t, y[0], y[1], results.con_a, results.con_b, results.fab, results.fba, results.fbo
         );
     }
