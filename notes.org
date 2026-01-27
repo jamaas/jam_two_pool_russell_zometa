@@ -1,0 +1,33 @@
+[2026-01-25 Sun 09:54]\\
+attempting to figure out why lines 45-45 seem to be pointing to wrong elements of I vector?
+
+
+
+// Initial state. State values of  QA0, QB0, QT0\\
+let y0 = State::new(I[2], I[3], I[4]);
+
+think if should be I 3, 4, 5?
+
+
+[2026-01-25 Sun 11:50]
+C-u C-c !
+
+
+going create a new model script, strip out the "total pool" stuff and see if I can graph
+the concentrations new name will be "jam_two_pool_no_total"
+
+remember in Rust , vector designations begin at 0 ...
+
+[2026-01-26 Mon 12:39]
+
+sent text to Sylvain Renevey asking for help, also put a question on Rust users group
+asking for suggestions
+
+- need to ask Sylvain why both
+  ```// declare the external Rust crates required
+  //use ode_solvers::rk4::*;
+  use ode_solvers::*;```
+
+  * should be every feature, therefor rk4 line not necessary, covered by others?
+    
+	

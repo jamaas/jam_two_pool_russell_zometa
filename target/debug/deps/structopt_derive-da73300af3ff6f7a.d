@@ -1,0 +1,10 @@
+/home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/deps/structopt_derive-da73300af3ff6f7a.d: /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/lib.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/attrs.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/doc_comments.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/parse.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/spanned.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/ty.rs
+
+/home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/deps/libstructopt_derive-da73300af3ff6f7a.so: /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/lib.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/attrs.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/doc_comments.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/parse.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/spanned.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/ty.rs
+
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/lib.rs:
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/attrs.rs:
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/doc_comments.rs:
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/parse.rs:
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/spanned.rs:
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structopt-derive-0.4.18/src/ty.rs:

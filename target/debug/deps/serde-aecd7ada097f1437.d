@@ -1,0 +1,14 @@
+/home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/deps/serde-aecd7ada097f1437.d: /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/build/serde-30dfd4c93d7ae6f7/out/private.rs
+
+/home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/deps/libserde-aecd7ada097f1437.rlib: /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/build/serde-30dfd4c93d7ae6f7/out/private.rs
+
+/home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/deps/libserde-aecd7ada097f1437.rmeta: /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/build/serde-30dfd4c93d7ae6f7/out/private.rs
+
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs:
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs:
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs:
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs:
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs:
+/home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/build/serde-30dfd4c93d7ae6f7/out/private.rs:
+
+# env-dep:OUT_DIR=/home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/build/serde-30dfd4c93d7ae6f7/out

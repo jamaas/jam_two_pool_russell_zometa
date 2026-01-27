@@ -1,0 +1,14 @@
+/home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/deps/thiserror-29605b1b133a788a.d: /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/lib.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/aserror.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/display.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/var.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/private.rs /home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/build/thiserror-7399ea59ce3845b2/out/private.rs
+
+/home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/deps/libthiserror-29605b1b133a788a.rlib: /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/lib.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/aserror.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/display.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/var.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/private.rs /home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/build/thiserror-7399ea59ce3845b2/out/private.rs
+
+/home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/deps/libthiserror-29605b1b133a788a.rmeta: /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/lib.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/aserror.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/display.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/var.rs /home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/private.rs /home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/build/thiserror-7399ea59ce3845b2/out/private.rs
+
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/lib.rs:
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/aserror.rs:
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/display.rs:
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/var.rs:
+/home/jamaas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/private.rs:
+/home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/build/thiserror-7399ea59ce3845b2/out/private.rs:
+
+# env-dep:OUT_DIR=/home/jamaas/research/rust/jam_two_pool_russell_zometa/target/debug/build/thiserror-7399ea59ce3845b2/out

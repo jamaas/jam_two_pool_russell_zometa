@@ -1,0 +1,64 @@
+% Created 2026-01-26 Mon 12:44
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Jim Maas}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Jim Maas},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 30.2 (Org mode 9.5.2)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\textit{[2026-01-25 Sun 09:54]}\\
+attempting to figure out why lines 45-45 seem to be pointing to wrong elements of I vector?
+
+
+
+// Initial state. State values of  QA0, QB0, QT0\\
+let y0 = State::new(I[2], I[3], I[4]);
+
+think if should be I 3, 4, 5?
+
+
+\textit{[2026-01-25 Sun 11:50]}
+C-u C-c !
+
+
+going create a new model script, strip out the "total pool" stuff and see if I can graph
+the concentrations new name will be "jam\textsubscript{two}\textsubscript{pool}\textsubscript{no}\textsubscript{total}"
+
+remember in Rust , vector designations begin at 0 \ldots{}
+
+\textit{[2026-01-26 Mon 12:39]}
+
+sent text to Sylvain Renevey asking for help, also put a question on Rust users group
+asking for suggestions
+
+\begin{itemize}
+\item need to ask Sylvain why both
+```// declare the external Rust crates required
+//use ode\textsubscript{solvers}::rk4::*;
+use ode\textsubscript{solvers}::*;```
+
+\begin{itemize}
+\item should be every feature, therefor rk4 line not necessary, covered by others?
+\end{itemize}
+\end{itemize}
+\end{document}

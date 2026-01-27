@@ -1,0 +1,92 @@
+use russell_lab::NumVector;
+use russell_ode::{Method, OdeSolver, Params, System};
+
+// --- Model Parameters ---
+
+/// Number of state variables (e.g., amount of metabolite in Pool A and Pool B).
+const N_STATES: usize = 2;
+
+/// Capacities or initial parameters for the system.
+/// I[0], I[1]: Volumes/capacities for Pool A and B.
+/// I[4]: Constant external input to Pool A.
+const I: [f64; 5] = [2.0, 3.0, 0.0, 0.0, 1.0];
+
+/// Flux constants used in the Michaelis-Menten-style equations.
+const C: [f64; 6] = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
+
+// --- Non-State Variable Extraction ---
+
+/// This struct holds "non-state" variables (results like concentrations and fluxes)
+/// that are calculated during the ODE integration but are not part of the state vector.
+#[derive(Debug, Clone, Copy)]
+pub struct AuxiliaryResults {
+    pub con_a: f64,
+    pub con_b: f64,
+    pub fab: f64,
+    pub fba: f64,
+    pub fbo: f64,
+}
+
+impl AuxiliaryResults {
+    /// Initializer for the auxiliary results.
+    fn new() -> Self {
+        AuxiliaryResults {
+            con_a: 0.0,
+            con_b: 0.0,
+            fab: 0.0,
+            fba: 0.0,
+            fbo: 0.0,
+        }
+    }
+}
+
+fn main() {
+    // 1. Define the system of differential equations
+    // The mutable closure parameter 'results' allows the solver to update
+    // auxiliary variables during each calculation stage.
+    let system = System::new(N_STATES, |dydt, _t, y, results: &mut AuxiliaryResults| {
+        // --- Calculate Concentrations ---
+        results.con_a = y[0] / I[0];
+        results.con_b = y[1] / I[1];
+
+        // --- Calculate Fluxes (Mechanistic equations) ---
+        results.fab = C[0] / (1.0 + (C[3] / results.con_a));
+        results.fba = C[1] / (1.0 + (C[4] / results.con_b));
+        results.fbo = C[2] / (1.0 + (C[5] / results.con_b));
+
+        // --- Specify the ODEs ---
+        dydt[0] = I[4] + results.fba - results.fab;
+        dydt[1] = results.fab - results.fba - results.fbo;
+
+        Ok(())
+    });
+
+    // 2. Configure the solver (Advance Runge-Kutta method)
+    let params = Params::new(Method::DoPri8);
+    let mut solver = OdeSolver::new(params, system).expect("Solver initialization failed");
+
+    // 3. Set Initial Conditions
+    let mut t = 0.0;
+    let dt = 0.1;
+    let mut y = NumVector::from(&[1.0, 1.0]); // Initial metabolite amounts in pools
+    let mut results = AuxiliaryResults::new();
+
+    // 4. Time-stepping Loop
+    println!("Time, PoolA, PoolB, ConA, ConB, Fab, Fba, Fbo");
+    for _ in 0..10 {
+        // Advance the simulation.
+        // The 'results' struct is passed mutably so it captures the values
+        // calculated inside the system function at the end of the step.
+        solver
+            .solve(&mut y, t, t + dt, None, &mut results)
+            .expect("Solver failed");
+
+        t += dt;
+
+        // Print the State variables (Pools) and Non-State variables (Cons/Fluxes)
+        println!(
+            "{:.2}, {:.4}, {:.4}, {:.4}, {:.4}, {:.4}, {:.4}, {:.4}",
+            t, y[0], y[1], results.con_a, results.con_b, results.fab, results.fba, results.fbo
+        );
+    }
+}
