@@ -1,4 +1,4 @@
-% Created 2026-01-26 Mon 12:44
+% Created 2026-01-28 Wed 12:18
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -61,4 +61,17 @@ use ode\textsubscript{solvers}::*;```
 \item should be every feature, therefor rk4 line not necessary, covered by others?
 \end{itemize}
 \end{itemize}
+\textit{[2026-01-27 Tue 10:41]}
+
+Professor Juan Zometa from the International University of Berlin,
+answered my question on Rust Users group, and said that he had
+encountered the same problem using the ode\textsubscript{solvers} crate, inability to
+extract non-state variables!  He solved his problem by changing ode
+solvers written as part of the Russell consortium called russell\textsubscript{ode}.
+Then he converted a model he had of a mechanical system to my bio one,
+using the russell\textsubscript{ode} solver and it appears to work great!  Now to
+test it and try it, next to see if I can graph!
+
+\textit{[2026-01-28 Wed 12:16] } Very nice code from Pablo Zometa, works great,
+hope I can ask him a few questions to learn more about rust
 \end{document}

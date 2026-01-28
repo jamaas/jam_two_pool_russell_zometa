@@ -12,6 +12,7 @@ the accompanying diagram called "Two Pool Model.pdf */
 
 use russell_lab::NumVector;
 use russell_ode::{Method, OdeSolver, Params, System};
+use gnuplot::*;
 
 // --- Model Parameters ---
 
@@ -53,8 +54,8 @@ impl AuxiliaryResults {
     // Initializer for the auxiliary results.
     fn new() -> Self {
         AuxiliaryResults {
-            con_a: 0.0,
-            con_b: 0.0,
+            con_a: I[3]/I[1],
+            con_b: I[4]/I[2],
             fab: 0.0,
             fba: 0.0,
             fbo: 0.0,
@@ -95,7 +96,8 @@ fn main() {
     // integration interval
     let dt = 0.1;
     // Initial metabolite amounts in pools
-    let mut y = NumVector::from(&[1.0, 1.0]); 
+    let mut y = NumVector::from(&[I[4], I[3]]);
+
     let mut results = AuxiliaryResults::new();
 
     // 4. Time-stepping Loop
@@ -106,6 +108,7 @@ fn main() {
         // The 'results' struct is passed mutably so it captures the values
         // calculated inside the system function at the end of the step.
         solver
+	    //How would I know what to fill in the () for .solve?
             .solve(&mut y, t, t + dt, None, &mut results)
             .expect("Solver failed");
         t += dt;

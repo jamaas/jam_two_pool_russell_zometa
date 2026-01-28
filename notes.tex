@@ -1,4 +1,4 @@
-% Created 2026-01-27 Tue 10:46
+% Created 2026-01-28 Wed 12:21
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -26,30 +26,24 @@
 
 \tableofcontents
 
-\textit{[2026-01-25 Sun 09:54]}\\
-attempting to figure out why lines 45-45 seem to be pointing to wrong elements of I vector?
-
-
+\textit{[2026-01-25 Sun 09:54]}attempting to figure out why lines 45-45 seem to
+be pointing to wrong elements of I vector?
 
 // Initial state. State values of  QA0, QB0, QT0\\
 let y0 = State::new(I[2], I[3], I[4]);
 
 think if should be I 3, 4, 5?
+\textit{[2026-01-25 Sun 11:50]}C-u C-c !
 
+going create a new model script, strip out the "total pool" stuff and
+see if I can graph the concentrations
 
-\textit{[2026-01-25 Sun 11:50]}
-C-u C-c !
-
-
-going create a new model script, strip out the "total pool" stuff and see if I can graph
-the concentrations new name will be "jam\textsubscript{two}\textsubscript{pool}\textsubscript{no}\textsubscript{total}"
+new name will be "jam\textsubscript{two}\textsubscript{pool}\textsubscript{no}\textsubscript{total}"
 
 remember in Rust , vector designations begin at 0 \ldots{}
 
-\textit{[2026-01-26 Mon 12:39]}
-
-sent text to Sylvain Renevey asking for help, also put a question on Rust users group
-asking for suggestions
+\textit{[2026-01-26 Mon 12:39]}sent text to Sylvain Renevey asking for help,
+also put a question on Rust users group asking for suggestions
 
 \begin{itemize}
 \item need to ask Sylvain why both
@@ -61,14 +55,16 @@ use ode\textsubscript{solvers}::*;```
 \item should be every feature, therefor rk4 line not necessary, covered by others?
 \end{itemize}
 \end{itemize}
-\textit{[2026-01-27 Tue 10:41]}
+\textit{[2026-01-27 Tue 10:41] } Professor Juan Zometa from the International
+University of Berlin, answered my question on Rust Users group, and
+said that he had encountered the same problem using the ode\textsubscript{solvers}
+crate, inability to extract non-state variables!  He solved his
+problem by changing ode solvers written as part of the Russell
+consortium called russell\textsubscript{ode}.  Then he converted a model he had of a
+mechanical system to my bio one, using the russell\textsubscript{ode} solver and it
+appears to work great!  Now to test it and try it, next to see if I
+can graph!
 
-Professor Juan Zometa from the International University of Berlin,
-answered my question on Rust Users group, and said that he had
-encountered the same problem using the ode\textsubscript{solvers} crate, inability to
-extract non-state variables!  He solved his problem by changing ode
-solvers written as part of the Russell consortium called russell\textsubscript{ode}.
-Then he converted a model he had of a mechanical system to my bio one,
-using the russell\textsubscript{ode} solver and it appears to work great!  Now to
-test it and try it, next to see if I can graph!
+\textit{[2026-01-28 Wed 12:16] } Very nice code from Pablo Zometa, works great,
+hope I can ask him a few questions to learn more about rust
 \end{document}
