@@ -35,3 +35,9 @@ can graph!
 	
 [2026-01-28 Wed 12:16] Very nice code from Pablo Zometa, works great,
 hope I can ask him a few questions to learn more about rust
+[2026-01-30 Fri 14:18] Can output data directly from rust using > to
+print directly to file Then start gnuplot, then "plot 'results.tx'
+will show the plot!  Assumes first column is x, second column is y,
+can also do multiple colums, some instructions at
+https://alvinalexander.com/technology/gnuplot-charts-graphs-examples/
+likely good enough to start with

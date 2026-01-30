@@ -76,7 +76,7 @@ pub static OPT_LEVEL: &str = "0";
 #[allow(clippy::needless_raw_string_hashes)]
 #[doc=r#"The parallelism that was specified during compilation."#]
 #[allow(dead_code)]
-pub static NUM_JOBS: u32 = 40;
+pub static NUM_JOBS: u32 = 8;
 #[allow(clippy::needless_raw_string_hashes)]
 #[doc=r#"Value of DEBUG for the profile used during compilation."#]
 #[allow(dead_code)]
