@@ -1,1 +1,1 @@
-This is another incarnation of a "toy" two-pool biological mechanistic model, written in Rust, with much help from Prof. Juan Pablo Zometa at the Berlin International University.  Help yourself to use it.  I can be contacted at jimmaasuk@gmail.com
+This is another incarnation of a "toy" two-pool biological mechanistic model, written in Rust, with much help from Prof. Juan Pablo Zometa at the Berlin International University for the ode solver routines and Sieglord for help with the gnuplot graphing.  Help yourself to use it.  I can be contacted at jimmaasuk@gmail.com
