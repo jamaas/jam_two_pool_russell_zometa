@@ -7,8 +7,10 @@
 the accompanying diagram called "Two Pool Model.pdf */
 
 
-// First produced by  Pablo Zamora  and JAM at Norwich UK on 2026_01_26
-// Last updated on 2026_01_26
+// First produced by Pablo Zamora, Sieglord, and JAM at Norwich UK on
+// 2026_01_26
+
+//Last updated on 2026_02_01
 
 use russell_lab::NumVector;
 use russell_ode::{Method, OdeSolver, Params, System};
@@ -88,11 +90,12 @@ fn main() {
 
     // 2. Configure the solver (Advance Runge-Kutta method)
     //   let params = Params::new(Method::DoPri8);
-    // use Runge-Kutta 4th order
-       let params = Params::new(Method::Rk4);
-    let mut solver = OdeSolver::new(params, system).expect("Solver initialization failed");
+    // use Runge-Kutta 4th order let params =
+    let params = Params::new(Method::Rk4);
+    let mut solver = OdeSolver::new(params, system).expect("Solver
+    initialization failed");
 
-    // 3. Set Initial Conditions
+      // 3. Set Initial Conditions
     // start time
     let mut t = 0.0;
     // integration interval
@@ -119,7 +122,7 @@ fn main() {
         // The 'results' struct is passed mutably so it captures the values
         // calculated inside the system function at the end of the step.
         solver
-	    //How would I know what to fill in the () for .solve?
+	//How would I know what to fill in the () for .solve?
             .solve(&mut y, t, t + dt, None, &mut results)
             .expect("Solver failed");
         t += dt;
