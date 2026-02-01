@@ -13,6 +13,8 @@ the accompanying diagram called "Two Pool Model.pdf */
 use russell_lab::NumVector;
 use russell_ode::{Method, OdeSolver, Params, System};
 use gnuplot::*;
+use std::thread::sleep;
+use std::time::Duration;
 
 // --- Model Parameters ---
 
@@ -100,10 +102,19 @@ fn main() {
 
     let mut results = AuxiliaryResults::new();
 
+    let mut fg = Figure::new();
+    let num_steps = 100;
+    let mut state_trace = Vec::with_capacity(num_steps + 1);
+    let mut results_trace = Vec::with_capacity(num_steps + 1);
+    let mut t_trace = Vec::with_capacity(num_steps + 1);
+    t_trace.push(t);
+    state_trace.push(y.clone());
+    results_trace.push(results);
+
     // 4. Time-stepping Loop
     println!("Time, PoolA, PoolB, ConA, ConB, Fab, Fba, Fbo");
     //Number of steps 
-    for _ in 0..100{
+    for _ in 0..num_steps {
         // Advance the simulation.
         // The 'results' struct is passed mutably so it captures the values
         // calculated inside the system function at the end of the step.
@@ -112,6 +123,32 @@ fn main() {
             .solve(&mut y, t, t + dt, None, &mut results)
             .expect("Solver failed");
         t += dt;
+
+        t_trace.push(t);
+        state_trace.push(y.clone());
+        results_trace.push(results);
+
+        // Plot the trace.
+        fg.clear_axes();
+        fg.axes2d()
+            .set_pos_grid(3, 1, 0)
+            .set_x_range(Fix(0.), Fix(num_steps as f64 * dt))
+            .lines_points(&t_trace, state_trace.iter().map(|y| y[0]), &[Caption("A")])
+            .lines_points(&t_trace, state_trace.iter().map(|y| y[1]), &[Caption("B")])
+            .lines_points(&t_trace, state_trace.iter().map(|y| y[0] + y[1]), &[Caption("Total")]);
+        fg.axes2d()
+            .set_pos_grid(3, 1, 1)
+            .set_x_range(Fix(0.), Fix(num_steps as f64 * dt))
+            .lines_points(&t_trace, results_trace.iter().map(|r| r.con_a), &[Caption("Con A")])
+            .lines_points(&t_trace, results_trace.iter().map(|r| r.con_b), &[Caption("Con B")]);
+        fg.axes2d()
+            .set_pos_grid(3, 1, 2)
+            .set_x_range(Fix(0.), Fix(num_steps as f64 * dt))
+            .lines_points(&t_trace, results_trace.iter().map(|r| r.fab), &[Caption("Flux AB")])
+            .lines_points(&t_trace, results_trace.iter().map(|r| r.fba), &[Caption("Flux BA")])
+            .lines_points(&t_trace, results_trace.iter().map(|r| r.fbo), &[Caption("Flux BO")]);
+        fg.show_and_keep_running().unwrap();
+        sleep(Duration::from_millis(50));
 
         // Print the State variables (Pools) and Non-State variables (Cons/Fluxes)
         println!(
