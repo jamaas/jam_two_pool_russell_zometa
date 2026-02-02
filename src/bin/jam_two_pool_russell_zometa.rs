@@ -7,7 +7,7 @@
 the accompanying diagram called "Two Pool Model.pdf */
 
 
-// First produced by Pablo Zamora, Sieglord, and JAM at Norwich UK on
+// First produced by Pablo Zamora,  Dr. Pavel Sountsov, and JAM at Norwich UK on
 // 2026_01_26
 
 //Last updated on 2026_02_01
